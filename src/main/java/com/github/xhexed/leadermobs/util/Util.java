@@ -80,12 +80,16 @@ public class Util {
 
     public static Entity getDamageSource(Entity entity) {
         if (entity instanceof Projectile) {
-            Entity shooter = (Entity) ((Projectile) entity).getShooter();
-            if (shooter != null) entity = shooter;
+            Entity shooter = ((Projectile) entity).getShooter();
+            if (shooter != null) {
+                entity = shooter;
+            }
         }
         if (entity instanceof TNTPrimed) {
             Entity igniter = ((TNTPrimed) entity).getSource();
-            if (igniter != null) entity = igniter;
+            if (igniter != null) {
+                entity = igniter;
+            }
         }
         return entity;
     }
